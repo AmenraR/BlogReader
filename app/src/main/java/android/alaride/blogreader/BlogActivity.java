@@ -21,7 +21,7 @@ public class BlogActivity extends Activity {
                 "Blog Post 1",
                 "Blog Post 2",
                 "Blog Post 3",
-                "Blog Post 4";
+                "Blog Post 4"
         };
 
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
