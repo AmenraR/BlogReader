@@ -2,7 +2,9 @@ package android.alaride.blogreader;
 
 import android.util.Log;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,13 +38,18 @@ public class BlogPostParser {
             while ((line = reader.readLine()) != null) {
                 builder.append(line);
             }
-            Log.i("BlogPostParser", "Input Stream String: " + builder.toString());
+            JSONTokener jsonTokener = new JSONTokener(builder.toString());
+            jsonObject = new JSONObject(jsonTokener);
         }
         catch(IOException error){
             Log.e("BlogPostParse", "IOException:" + error);
 
         }
+        catch(JSONException error){
+            Log.e("BlogPosParser", "JSON Exception: " + error);
+        }
+
         return jsonObject;
     }
-
+//start at video 17
 }
