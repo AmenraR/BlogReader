@@ -59,6 +59,15 @@ public class BlogPostParser {
     public void readFeed(JSONObject jsonObject) {
            try {
             JSONArray jsonPosts = jsonObject.getJSONArray("posts");
+
+               for(int index = 0; index< jsonPosts.length(); index++){
+                   JSONObject post = jsonPosts.getJSONObject(index);
+
+                   String title = post.getString("title");
+                   String url  = post.getString("url");
+
+                   BlogPost blogPost = new BlogPost(title, url);
+               }
         }
         catch(JSONException error){
             Log.e("BlogPostParser", "JSONException: " + error);
@@ -66,5 +75,5 @@ public class BlogPostParser {
 
      }
 
-//start at video 19 2 minutes
+//start at video
 }
