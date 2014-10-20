@@ -2,6 +2,7 @@ package android.alaride.blogreader;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -55,9 +56,8 @@ public class BlogPostParser {
 
     }
 
-    public void readFeed(JSONObject jsonObject){
-
-    }
+    public void readFeed(JSONObject jsonObject) {
+     }
 
 //start at video 19 2 minutes
 }
