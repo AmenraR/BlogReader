@@ -30,10 +30,7 @@ public class BlogActivity extends Activity {
         //when listview is empty, the progress bar will show, if it isnt, it will disappear.
         listView.setEmptyView(progressBar);
 
-
-        listView.setAdapter(adapter);
-
-        new BlogPostTask().execute();
+        new BlogPostTask().execute(this);
     }
 
 
