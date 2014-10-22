@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.BlockingDeque;
 
 public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject>{
     private Activity activity;
@@ -47,11 +48,12 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject>{
 
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
+        BlogPostParser.get().readFeed(jsonObject);
         ListView listView = (ListView)activity.findViewById(R.id.ListView);
 
         //adapts the information in order to have it displayed into the listView
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, arrayStrings);
+        ArrayAdapter<BlogPost> adapter = new ArrayAdapter<BlogPost>(activity, android.R.layout.simple_list_item_1, BlogPostParser.get().posts);
         listView.setAdapter(adapter);
         //tells the listView to use the previously created adapter
     }
