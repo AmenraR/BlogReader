@@ -9,9 +9,4 @@ public class BlogPost {
         this.title = title;
         this.url = url;
     }
-
-    @Override
-    public String toString() {
-        return title;
-    }
 }
