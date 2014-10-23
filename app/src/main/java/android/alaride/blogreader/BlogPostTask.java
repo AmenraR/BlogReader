@@ -25,7 +25,7 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject>{
 
         //catches the errors in the Url statement and displaying them in the catch
         try {
-            URL blogFeedUrl = new URL("http://blog.teamtreehouse.com/api/get_recent_summary/?count=10");
+            URL blogFeedUrl = new URL("http://blog.teamtreehouse.com/api/get_recent_summary/?count=20");
 
             HttpURLConnection connection = (HttpURLConnection)blogFeedUrl.openConnection();
             connection.connect();
