@@ -1,6 +1,8 @@
 package android.alaride.blogreader;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,13 +22,6 @@ public class BlogActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blog);
 
-        /*String[] arrayStrings = new String[]{
-                "Blog Post 1",
-                "Blog Post 2",
-                "Blog Post 3",
-                "Blog Post 4"
-        };*/
-
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         listView = (ListView)findViewById(R.id.ListView);
 
@@ -39,11 +34,16 @@ public class BlogActivity extends Activity {
             //acquires the selected post and takes it's info (i.e. title)
                 Log.i("BlogActivity", "Title: " + BlogPostParser.get().posts.get(position).title);
 
+                Intent intent = new Intent(getApplicationContext(), BlogWebActivity.class);
+                Uri blogUri = Uri.parse(BlogPostParser.get().posts.get(position).url);
+                intent.setData(blogUri);
+
+                startActivity(intent);
             }
         });
 
         new BlogPostTask().execute(this);
     }
 
-
 }
+//video 37 3 min
